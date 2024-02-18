@@ -4,7 +4,12 @@ package ie.tudublin;
 
 public class Main
 {
-
+	public void barchart()
+	{
+		String[] a = {"MAIN"};
+        processing.core.PApplet.runSketch( a, new Arrays());
+    }
+	
 	public void helloProcessing()
 	{
 		String[] a = {"MAIN"};
@@ -62,7 +67,9 @@ public class Main
 		
 
 
-		m.helloProcessing();
+	
+
+		m.barchart();
 	}
 	
 }
