@@ -19,44 +19,39 @@ public class Arrays extends PApplet {
     }
 
     public void draw() {
-        // No animation needed
     }
 
 	public void drawRainfallChart() {
-		float barWidth = (width - 150) / (float) (years.length +1); // Adjusted width for bars
-		float maxRainfall = 100; // Assuming the maximum rainfall value is 100
+		float barWidth = (width - 150) / (float) (1.2*years.length ); 
+		float maxRainfall = 100; 
 	
-		// Draw the y-axis labels for rainfall increments by 10
 		textAlign(RIGHT, CENTER);
 		for (int level = 0; level <= maxRainfall; level += 10) {
-			float y = map(level, 0, maxRainfall, height, 0); // Map y-coordinate
-			text(level, 60, y); // Display rainfall level on the left side
+			float y = map(level, 0, maxRainfall, height, 0);
+			text(level, 60, y);
 		}
 	
-		// Draw the x-axis labels for years at the bottom of the graph
 		textAlign(CENTER);
 		for (int i = 0; i < years.length; i++) {
-			float x = map(i, 0, years.length, 100, width - 100); // Adjusted x-coordinate
-			text(years[i], x + barWidth / 2, height - 5); // Display year label
+			float x = map(i, 0, years.length, 100, width - 100);
+			text(years[i], x + barWidth / 2, height - 5);
 		}
 
-		stroke(255); // Set color to white
-    	line(100, 0, 100, height); // Vertical line to separate y-axis
-    	line(100, height - 20, width, height - 20); // Horizontal line to separate x-axis contents
+		stroke(255);
+    	line(100, 0, 100, height);
+    	line(100, height - 20, width, height - 20);
 
-    // Draw the bars for each year
     for (int i = 0; i < years.length; i++) {
-        float x = map(i + 1, 1, years.length + 1, 140, width - 30); // Adjusted x-coordinate
-        float barHeight = map(rainfall[i], 0, maxRainfall, 0, height - 20); // Adjust according to the maximum rainfall value
-
-        // Draw the bar with white color
+        float x = map(i + 1, 1, years.length + 1, 140, width - 30);
+        float barHeight = map(rainfall[i], 0, maxRainfall, 0, height - 20);
 
         stroke(255);
-        strokeWeight(1); // Adjust the thickness of the stroke
+        strokeWeight(1);
         rect(x - barWidth / 2, height - barHeight - 20, barWidth, barHeight);
     }
 }
 	
 }
+
 
 
