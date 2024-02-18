@@ -16,7 +16,7 @@ public class Arrays extends PApplet {
 
     public void setup() {
         colorMode(HSB, 360, 100, 100);
-        background(255);
+        background(0);
         drawRainfallPieChart();
     }
 
@@ -24,45 +24,35 @@ public class Arrays extends PApplet {
     }
 
     public void drawRainfallPieChart() {
-        float cx = width / 2;
-        float cy = height / 2;
-        float diameter = (float) (min(width, height) * 0.8);
-        float lastAngle = 0;
+		float cx = width / 2;
+		float cy = height / 2;
+		float diameter = (float) (min(width, height) * 0.8);
+		float lastAngle = 0;
+	
+		float totalRainfall = 0;
+		for (int i = 0; i < rainfall.length; i++) {
+			totalRainfall += rainfall[i];
+		}
+	
+		for (int i = 0; i < rainfall.length; i++) {
+			float angle = radians(map(rainfall[i], 0, totalRainfall, 0, 360));
+	
+			noStroke(); 
+			fill((i * 30) % 360, 80, 80);
+			arc(cx, cy, diameter, diameter, lastAngle, lastAngle + angle, PIE);
+	
+			float labelRadius = diameter / 2 + 20; 
+			float labelAngle = lastAngle + angle / 2; 
+			float labelX = cx + labelRadius * cos(labelAngle); 
+			float labelY = cy + labelRadius * sin(labelAngle); 
+			fill(255);
+			textAlign(CENTER, CENTER);
+			text(months[i], labelX, labelY);
+			lastAngle += angle;
+		}
+	}
 
-    
-        float totalRainfall = 0;
-        for (int i = 0; i < rainfall.length; i++) {
-            totalRainfall += rainfall[i];
-        }
-
-        
-        for (int i = 0; i < rainfall.length; i++) {
-            float gray = map(i, 0, rainfall.length, 0, 255);
-            float angle = radians(map(rainfall[i], 0, totalRainfall, 0, 360));
-
-            noStroke(); 
-            fill((i * 30) % 360, 80, 80);
-            arc(cx, cy, diameter, diameter, lastAngle, lastAngle + angle, PIE);
-
-            lastAngle += angle;
-
-            
-            stroke(255);
-            strokeWeight(2);
-            line(cx, cy, cx + diameter / 2 * cos(lastAngle), cy + diameter / 2 * sin(lastAngle));
-        }
-
-    
-        float x = cx + diameter / 2 + 20;
-        float y = cy - diameter / 2;
-        fill(255); 
-        for (int i = 0; i < months.length; i++) {
-            textAlign(LEFT, CENTER);
-            text(months[i] + ": " + rainfall[i], x + 15, y + i * 20 + 5);
-        }
-    }
 }
-
 
 
 // - - - - - - - - - - - - - - -
