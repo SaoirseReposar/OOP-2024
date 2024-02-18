@@ -4,8 +4,62 @@ package ie.tudublin;
 
 import processing.core.PApplet;
 
-//Week 4 lab, part 2:
+//Week 4 lab, part 3: Trend line chart
 
+public class Arrays extends PApplet {
+    String[] months = {"Jan", "Feb", "March", "April", "May", "June", "July", "Aug", "Sep", "Oct", "Nov", "Dec"};
+    int[] rainfall = {41, 35, 57, 24, 37, 50, 80, 48, 105, 30, 102, 60};
+
+    public void settings() {
+        size(800, 400);
+    }
+
+    public void setup() {
+        colorMode(HSB);
+        background(0);
+        drawRainfallChart();
+    }
+
+    public void draw() {
+    }
+
+    public void drawRainfallChart() {
+        float maxRainfall = 120;
+
+        textAlign(RIGHT, CENTER);
+        for (int level = 0; level <= maxRainfall; level += 10) {
+            float y = map(level, 0, maxRainfall, height, 0);
+            text(level, 60, y);
+        }
+
+        textAlign(CENTER);
+        for (int i = 0; i < months.length; i++) {
+            float x = map(i, 0, months.length, 100, width - 100);
+            text(months[i], x, height - 5);
+        }
+
+        stroke(255);
+        line(100, 0, 100, height);
+        line(100, height - 20, width, height - 20);
+
+       
+        beginShape();
+        noFill();
+        for (int i = 0; i < rainfall.length; i++) {
+            float x = map(i, 0, rainfall.length - 1, 100, width - 100);
+            float y = map(rainfall[i], 0, maxRainfall, height - 20, 0);
+            vertex(x, y);
+        }
+        endShape();
+    }
+}
+
+
+// - - - - - - - - - - - - - - -
+
+
+//Week 4 lab, part 2: Rainbow bar chart
+/* 
 public class Arrays extends PApplet {
     String[] months = {"Jan", "Feb", "March", "April", "May", "June", "July", "Aug", "Sep", "Oct", "Nov", "Dec"};
     int[] rainfall = {41, 35, 57, 24, 37, 50, 80, 48, 105, 30, 102, 60}; 
@@ -53,10 +107,13 @@ public class Arrays extends PApplet {
         }
     }
 }
+*/
 
 
+// - - - - - - - - - - - - - - -
 
-//Code for Week 4 lab, part 1
+
+//Code for Week 4 lab, part 1 : bar chart
 /* 
 public class Arrays extends PApplet {
     String[] years = {"83", "84", "85", "86", "87", "88", "89", "90"};
