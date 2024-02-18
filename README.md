@@ -2,8 +2,6 @@
 
 ![Logo](images/logo.png)
 
-Teams:
-
 Resources
 ---------
 - [Discord](https://discord.gg/htBfm2VA)
@@ -19,6 +17,50 @@ Resources
 
 ## Assignments
 - [Assignments](assignments.md)
+
+# Week 3
+
+No lecture because of bank holiday
+
+## Lab
+
+## Learning Outcomes
+- Learn how to use the for loop in Java
+- Improved problem solving ability
+- Improved computational thinking skills
+
+Share screenshots on discord PLEASE. Today we will make multisensory for loops. In other words, loops that stimulate our senses with colours, hues and sounds. 
+
+Accept [this individual assignment on github classroom](https://classroom.github.com/a/nPZ7hH8r). Clone the repository locally and make at least 5 commits as you go. Put your code into MultiSensoryForLoops.java. Have the keys 0-9 switch the screen to each of the patterns below. The color space is set to HSB and the color values correspond to hue (color), saturation (amount of gray) and brigtness. Use the [Processing reference](https://processing.org/reference/). Use mouseX, mouseY, width and height variables. 
+
+![Sketch](images/p31.png)
+
+
+![Sketch](images/bshift.png)
+
+
+![Sketch](images/p36.png)
+
+
+![Sketch](images/p34.png)
+
+
+![Sketch](images/p33.png)
+
+
+![Sketch](images/p32.png)
+
+![Sketch](images/p27.png)
+
+Use line, sin and cos to draw regular polygons like squares, pentagons, octogons etc:
+
+![Sketch](images/p10.png)
+
+Bonus!
+
+Make your patterns interactive with the mouse.
+
+Use a for loop to play a sequence of tones at different pitches. This [article explains how](https://code.compartmental.net/minim/audiooutput_method_playnote.html). 
 
 # Week 2 - Java Fundamentals & Drawing
 

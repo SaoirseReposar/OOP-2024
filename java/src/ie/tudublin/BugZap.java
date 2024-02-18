@@ -139,8 +139,5 @@ public class BugZap extends PApplet {
 			ellipse(x + w * 0.1f, y + h * 0.25f, w * 0.1f, w * 0.1f);
 	}
 
-			
-			
-		
 
 	}
