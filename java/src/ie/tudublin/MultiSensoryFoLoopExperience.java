@@ -6,15 +6,13 @@ import processing.core.PApplet;
 
 public class MultiSensoryFoLoopExperience extends PApplet {
 
-    int mode = 0;
+	int mode = 0;
 
-    Minim minim;
-    AudioOutput out;
+    
 
-    public void settings()
-    {
-        size(800, 800);
-    }
+	public void settings() {
+		size(500, 500);
+	}
 
     public void setup()
     {
@@ -46,25 +44,8 @@ public class MultiSensoryFoLoopExperience extends PApplet {
                 // Code goes here
                 break;
             case 1:
-
-                //for (int i = 0 ; i < 10 ; i ++)
+                for (int i = 0 ; i < 10 ; i ++)
                 {
-                    int numCircles = 10;
-                    float ww = width / (float) numCircles;
-                    float c = 255 / (float) numCircles;
-                    noStroke();
-                    for (int j = 0 ; j < numCircles ; j++)
-                    { 
-                        for(int i = 0 ; i < numCircles ; i++)
-                        { 
-                            float x = (.5f * ww) + i * ww;
-                            float y = 100;
-                            float cc = c * i;
-                            fill(cc, 255, 255);
-                            circle(x, y, ww);
-
-                        }
-                    }
                     // Code goes here
 
                 }

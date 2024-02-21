@@ -4,6 +4,13 @@ package ie.tudublin;
 
 public class Main
 {
+
+	public void GameOfLife()
+	{
+		String[] a = {"MAIN"};
+        processing.core.PApplet.runSketch( a, new Life());
+    }
+
 	public void barchart()
 	{
 		String[] a = {"MAIN"};
@@ -13,7 +20,7 @@ public class Main
 	public void helloProcessing()
 	{
 		String[] a = {"MAIN"};
-        processing.core.PApplet.runSketch( a, new MultiSensoryFoLoopExperience());
+        processing.core.PApplet.runSketch( a, new Life());
     }
 
 	public void doDogStuff()
