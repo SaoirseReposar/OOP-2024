@@ -44,23 +44,37 @@ public class LifeBoard {
 
     public void update()
     {
-        // The rules are!
-        // If the cell is alive then
-        // If it has < 2 alive neighbours, it dies due to lonelyness
-        // If it has > 3 alive neighbours, it dies due to overcrouding
-        // If it has 2-3 live neighbours, it survives
-        // If the cell is dead, then it comes to life 
-        // in the next generation if it has exactly 3 
-        // live neighbours
+        for (int row = 0; row < rows; row++) {
+            for (int col = 0; col < cols; col++) {
+                int aliveNeighbors = countAliveNeighbors(row, col);
+                
+                //rules of the game
+                if (board[row][col]) {
+                    //If the cell is alive:
+                    if (aliveNeighbors < 2 || aliveNeighbors > 3) {
+                        // Loneliness or overcrowding
+                        next[row][col] = false; // the cell dies
+                    } else {
+                        // else the cell survives
+                        next[row][col] = true;
+                    }
+                } else {
+                    // If the cell is dead
+                    if (aliveNeighbors == 3) {
+                        // the cell comes to life
+                        next[row][col] = true;
+                    } else {
+                        next[row][col] = false;
+                    }
+                }
+            }
+        }
 
-        // Write a nested for loop to update the board each frame
-        // Read board, write to next
-        
-        // At the end, swap them like this:
-        // boolean[][] temp = board;
-        // board = next;
-        // next = temp;
-    }
+         // Swap board
+         boolean[][] temp = board;
+         board = next;
+         next = temp;
+     }
 
     public void setCell(int row, int col, boolean value)
     {
