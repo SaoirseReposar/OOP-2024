@@ -57,7 +57,6 @@ public class Arrays extends PApplet {
         }
     }
     
-    
 
 }
 

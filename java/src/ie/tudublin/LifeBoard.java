@@ -1,10 +1,8 @@
 package ie.tudublin;
 
-import java.util.Map;
-
 import processing.core.PApplet;
 
-public class LifeBoard {
+public class LifeBoard extends PApplet{
     
     boolean[][] board;
     boolean[][] next;
@@ -27,7 +25,9 @@ public class LifeBoard {
         
     }
 
-
+    public LifeBoard() {
+        //TODO Auto-generated constructor stub
+    }
 
     void randomize()
     {
@@ -42,39 +42,40 @@ public class LifeBoard {
     }
 
 
-    public void update()
-    {
+    public void update() {
+        next = new boolean[rows][cols];
+        
         for (int row = 0; row < rows; row++) {
             for (int col = 0; col < cols; col++) {
-                int aliveNeighbors = countAliveNeighbors(row, col);
-                
-                //rules of the game
-                if (board[row][col]) {
-                    //If the cell is alive:
-                    if (aliveNeighbors < 2 || aliveNeighbors > 3) {
-                        // Loneliness or overcrowding
-                        next[row][col] = false; // the cell dies
-                    } else {
-                        // else the cell survives
-                        next[row][col] = true;
-                    }
+                int neighbors = countNeighbors(row, col);
+                if (board[row][col] && (neighbors < 2 || neighbors > 3)) {
+                    next[row][col] = false;
+                } else if (!board[row][col] && neighbors == 3) {
+                    next[row][col] = true;
                 } else {
-                    // If the cell is dead
-                    if (aliveNeighbors == 3) {
-                        // the cell comes to life
-                        next[row][col] = true;
-                    } else {
-                        next[row][col] = false;
+                    next[row][col] = board[row][col];
+                }
+            }
+        }
+        board = next;
+    }
+    
+    public int countNeighbors(int row, int col) {
+        int count = 0;
+        for (int i = -1; i <= 1; i++) {
+            for (int j = -1; j <= 1; j++) {
+                int neighborRow = row + i;
+                int neighborCol = col + j;
+                if (i == 0 && j == 0) continue;
+                if (neighborRow >= 0 && neighborRow < rows && neighborCol >= 0 && neighborCol < cols) {
+                    if (board[neighborRow][neighborCol]) {
+                        count++;
                     }
                 }
             }
         }
-
-         // Swap board
-         boolean[][] temp = board;
-         board = next;
-         next = temp;
-     }
+        return count;
+    }
 
     public void setCell(int row, int col, boolean value)
     {
@@ -104,7 +105,7 @@ public class LifeBoard {
         {
             for(int col = 0 ; col < cols ; col ++)
             {
-                float x = p.map(col, 0, cols, 0, p.width);
+                float x = PApplet.map(col, 0, cols, 0, p.width);
                 float y = row * cellHeight;
                 p.stroke(200,255, 255);
                 if (board[row][col])

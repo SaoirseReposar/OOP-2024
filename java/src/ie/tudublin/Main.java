@@ -5,18 +5,12 @@ package ie.tudublin;
 public class Main
 {
 
-	/*public void GameOfLife()
+	public void Game()
 	{
 		String[] a = {"MAIN"};
-        processing.core.PApplet.runSketch( a, new Life());
+        processing.core.PApplet.runSketch( a, new LifeBoard());
     }
-	*/
 
-	public void barchart()
-	{
-		String[] a = {"MAIN"};
-        processing.core.PApplet.runSketch( a, new Arrays());
-    }
 	
 
 
@@ -69,7 +63,11 @@ public class Main
 		System.out.println(a.getName());
 		System.out.println("C: " + c.getName());
 	
-		m.barchart();
+		
+
+		m.Game();
+
+
 	}
 	
 }
