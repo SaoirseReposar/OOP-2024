@@ -1,18 +1,14 @@
-
 // Packages must match the folder structure
 package ie.tudublin;
 
 public class Main
 {
 
-	public void Game()
+	public void helloProcessing()
 	{
 		String[] a = {"MAIN"};
-        processing.core.PApplet.runSketch( a, new LifeBoard());
+        processing.core.PApplet.runSketch( a, new Life());
     }
-
-	
-
 
 	public void doDogStuff()
 	{
@@ -62,12 +58,10 @@ public class Main
 
 		System.out.println(a.getName());
 		System.out.println("C: " + c.getName());
-	
 		
 
-		m.Game();
 
-
+		m.helloProcessing();
 	}
 	
 }

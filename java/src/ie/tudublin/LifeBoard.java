@@ -122,6 +122,4 @@ public class LifeBoard extends PApplet{
         
     }
 
-
-
 }
