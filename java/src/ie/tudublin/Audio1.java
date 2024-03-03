@@ -84,14 +84,14 @@ public class Audio1 extends PApplet
 			case 0:
                 background(0);
                 // Code goes here
-                for (int i=0; i<lerpedBuffer.length; i++) {
+                for (int i=0; i<lerpedBuffer.length-1; i+=5) {
                     stroke(map(i, 0, lerpedBuffer.length, 0, 255), 255, 255);
-                    line(i, halfH, i, halfH + lerpedBuffer[i] * halfH);
+                    line(i, lerpedBuffer[i] * halfH + halfH, i+5, lerpedBuffer[i+1] * halfH + halfH);
                 }
                 break;
         case 1:
             background(0);
-        
+    
             break;
         case 2:
             {
