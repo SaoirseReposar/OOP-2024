@@ -103,8 +103,15 @@ public class Audio1 extends PApplet
                 line(i, 0, i, lerpedBuffer[i] * height);
                 line(i, height, i, height - lerpedBuffer[i] * height);
             }
+            break;
         case 3:
             // Code goes here
+            background(0);
+            float circleSize = map(smoothedAmplitude, 0, 1, 50, 400);
+            fill(255);
+            ellipse(cx, cy, circleSize, circleSize);
+            break;
+            
         case 4:
         
             
