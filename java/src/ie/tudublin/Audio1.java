@@ -91,7 +91,10 @@ public class Audio1 extends PApplet
                 break;
         case 1:
             background(0);
-    
+            stroke(255);
+            for (int i=0; i<lerpedBuffer.length-1; i++) {
+                line(i, halfH, i, halfH + lerpedBuffer[i] + halfH);
+            }
             break;
         case 2:
             {
