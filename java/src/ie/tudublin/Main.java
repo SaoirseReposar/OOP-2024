@@ -4,6 +4,12 @@ package ie.tudublin;
 public class Main
 {
 
+	public void Lab6()
+	{
+		String[] a = {"MAIN"};
+        processing.core.PApplet.runSketch( a, new Audio1());
+    }
+
 	public void helloProcessing()
 	{
 		String[] a = {"MAIN"};
@@ -61,6 +67,7 @@ public class Main
 	
 
 		m.helloProcessing();
+		m.Lab6();
 	}
 	
 }
