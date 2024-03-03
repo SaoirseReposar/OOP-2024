@@ -7,7 +7,7 @@ public class Main
 	public void helloProcessing()
 	{
 		String[] a = {"MAIN"};
-        processing.core.PApplet.runSketch( a, new Life());
+        processing.core.PApplet.runSketch( a, new Sound1());
     }
 
 	public void doDogStuff()
@@ -58,8 +58,7 @@ public class Main
 
 		System.out.println(a.getName());
 		System.out.println("C: " + c.getName());
-		
-
+	
 
 		m.helloProcessing();
 	}
