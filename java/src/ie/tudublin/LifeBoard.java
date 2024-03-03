@@ -2,12 +2,7 @@ package ie.tudublin;
 
 import processing.core.PApplet;
 
-<<<<<<< HEAD
-public class LifeBoard extends PApplet{
-    
-=======
 public class LifeBoard {
->>>>>>> bf7090454cd3074c638cd2dad6eb9b99b7b2023c
     boolean[][] board;
     boolean[][] next;
     int size;
@@ -23,15 +18,7 @@ public class LifeBoard {
         cellSize = pa.width / (float) size;
     }
 
-<<<<<<< HEAD
-    public LifeBoard() {
-        //TODO Auto-generated constructor stub
-    }
-
-    void randomize()
-=======
     public void randomise()
->>>>>>> bf7090454cd3074c638cd2dad6eb9b99b7b2023c
     {
         for(int row = 0 ; row < size ; row ++)
         {
@@ -42,37 +29,6 @@ public class LifeBoard {
         }
     }
 
-<<<<<<< HEAD
-
-    public void update() {
-        next = new boolean[rows][cols];
-        
-        for (int row = 0; row < rows; row++) {
-            for (int col = 0; col < cols; col++) {
-                int neighbors = countNeighbors(row, col);
-                if (board[row][col] && (neighbors < 2 || neighbors > 3)) {
-                    next[row][col] = false;
-                } else if (!board[row][col] && neighbors == 3) {
-                    next[row][col] = true;
-                } else {
-                    next[row][col] = board[row][col];
-                }
-            }
-        }
-        board = next;
-    }
-    
-    public int countNeighbors(int row, int col) {
-        int count = 0;
-        for (int i = -1; i <= 1; i++) {
-            for (int j = -1; j <= 1; j++) {
-                int neighborRow = row + i;
-                int neighborCol = col + j;
-                if (i == 0 && j == 0) continue;
-                if (neighborRow >= 0 && neighborRow < rows && neighborCol >= 0 && neighborCol < cols) {
-                    if (board[neighborRow][neighborCol]) {
-                        count++;
-=======
     public void update()
     {
         // If cell is alive
@@ -105,20 +61,15 @@ public class LifeBoard {
                     else
                     {
                         next[row][col] = false;
->>>>>>> bf7090454cd3074c638cd2dad6eb9b99b7b2023c
                     }
                 }
             }
         }
-<<<<<<< HEAD
-        return count;
-=======
 
         boolean[][] temp;
         temp = board;
         board = next;
         next = temp;
->>>>>>> bf7090454cd3074c638cd2dad6eb9b99b7b2023c
     }
 
     public int countCellsAround(int row, int col)
@@ -171,17 +122,11 @@ public class LifeBoard {
         {
             for(int col = 0 ; col < size ; col ++)
             {
-<<<<<<< HEAD
-                float x = PApplet.map(col, 0, cols, 0, p.width);
-                float y = row * cellHeight;
-                p.stroke(200,255, 255);
-=======
                 float x = PApplet.map(col, 0, size, 0, pa.width);
                 float y = PApplet.map(row, 0, size, 0, pa.height);
                 x = cellSize * col;
                 y = cellSize * row;
 
->>>>>>> bf7090454cd3074c638cd2dad6eb9b99b7b2023c
                 if (board[row][col])
                 {
                     pa.fill(0, 255, 0);
@@ -195,8 +140,4 @@ public class LifeBoard {
         }
         
     }
-<<<<<<< HEAD
-
-=======
->>>>>>> bf7090454cd3074c638cd2dad6eb9b99b7b2023c
 }

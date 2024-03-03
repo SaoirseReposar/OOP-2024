@@ -1,4 +1,4 @@
-package ie.tudublin;
+ package ie.tudublin;
 
 import ddf.minim.AudioBuffer;
 import ddf.minim.AudioInput;
@@ -84,6 +84,10 @@ public class Audio1 extends PApplet
 			case 0:
                 background(0);
                 // Code goes here
+                for (int i=0; i<lerpedBuffer.length; i++) {
+                    stroke(map(i, 0, lerpedBuffer.length, 0, 255), 255, 255);
+                    line(i, halfH, i, halfH + lerpedBuffer[i] * halfH);
+                }
                 break;
         case 1:
             background(0);
