@@ -1,4 +1,6 @@
- package ie.tudublin;
+//Git commit title: "Audio"
+
+package ie.tudublin;
 
 import ddf.minim.AudioBuffer;
 import ddf.minim.AudioInput;
@@ -89,38 +91,48 @@ public class Audio1 extends PApplet
                     line(i, lerpedBuffer[i] * halfH + halfH, i+5, lerpedBuffer[i+1] * halfH + halfH);
                 }
                 break;
+                
         case 1:
             background(0);
             stroke(255);
+
             for (int i=0; i<lerpedBuffer.length-1; i++) {
                 line(i, halfH, i, halfH + lerpedBuffer[i] + halfH);
             }
+
             break;
+
         case 2:
             background(0);
             stroke(255);
+
             for (int i=0; i<lerpedBuffer.length-1; i++) {
                 line(i, 0, i, lerpedBuffer[i] * height);
                 line(i, height, i, height - lerpedBuffer[i] * height);
             }
             break;
+
         case 3:
             // Code goes here
             background(0);
             float circleSize = map(smoothedAmplitude, 0, 1, 50, 400);
             fill(255);
             ellipse(cx, cy, circleSize, circleSize);
-            break;
+            break;  
             
         case 4:
-        
-            
+            background(0);
+            float squareSize = map(smoothedAmplitude, 0, 1, 50, 400);
+            fill(255);
+            rectMode(CENTER);
+            rect(cx, cy, squareSize, squareSize);
+        break;
+
+        default:
+            background(0);
             break;
 
         }
-        
-
-
         
         // Other examples we made in the class
         /*
